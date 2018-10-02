@@ -33,7 +33,10 @@
 
 #define DCP_ALIGNMENT	64
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 70ecd0459d03... crypto: mxs-dcp - Fix SHA null hashes and output length
 /*
  * Null hashes to align with hw behavior on imx6sl and ull
  * these are flipped for consistency with hw output

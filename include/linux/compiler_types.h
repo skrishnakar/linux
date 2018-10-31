@@ -110,6 +110,10 @@ struct ftrace_likely_data {
 #define __deprecated
 #define __deprecated_for_modules
 
+#ifndef asm_volatile_goto
+#define asm_volatile_goto(x...) asm goto(x)
+#endif
+
 /*
  * From the GCC manual:
  *

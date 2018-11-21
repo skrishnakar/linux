@@ -4392,6 +4392,9 @@ static void brcmf_sdio_firmware_callback(struct device *dev, int err,
 					   SBSDIO_DEVICE_CTL, devctl, &err);
 			brcmf_sdiod_writeb(sdiod,
 					   SBSDIO_FUNC1_MESBUSYCTRL, CY_4339_MESBUSYCTRL, &err);
+			brcmf_sdiod_writeb(sdiod, SBSDIO_FUNC1_MESBUSYCTRL,
+					   CY_4373_F2_WATERMARK |
+					   SBSDIO_MESBUSYCTRL_ENAB, &err);
 			break;
 		default:
 			brcmf_sdiod_writeb(sdiod, SBSDIO_WATERMARK, DEFAULT_F2_WATERMARK, &err);

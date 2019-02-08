@@ -114,6 +114,10 @@ struct ftrace_likely_data {
 #define asm_volatile_goto(x...) asm goto(x)
 #endif
 
+#ifndef __copy
+# define __copy(symbol)
+#endif
+
 /*
  * From the GCC manual:
  *

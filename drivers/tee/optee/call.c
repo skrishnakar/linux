@@ -565,8 +565,8 @@ static bool is_normal_memory(pgprot_t p)
 #if defined(CONFIG_ARM)
 	u32 attr = pgprot_val(p) & L_PTE_MT_MASK;
 
-	return (attr == L_PTE_MT_WRITEALLOC) || (attr == L_PTE_MT_WRITEBACK) ||
-		(attr == L_PTE_MT_WRITETHROUGH);
+	return (((pgprot_val(p) & L_PTE_MT_MASK) == L_PTE_MT_WRITEALLOC) ||
+		((pgprot_val(p) & L_PTE_MT_MASK) == L_PTE_MT_WRITEBACK));
 #elif defined(CONFIG_ARM64)
 	return (pgprot_val(p) & PTE_ATTRINDX_MASK) == PTE_ATTRINDX(MT_NORMAL);
 #else
